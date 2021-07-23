@@ -7,6 +7,7 @@ window.onload = function(){
 const getResponse = () => {
     const messageRef = firebase.database().ref();
 
+
     messageRef.on("value", (snapshot) => {
         const data = snapshot.val();
         console.log(data);
@@ -28,7 +29,24 @@ const getResponse = () => {
 
     });
 
+    var data = "";
+var db = firebase.database()
+const nameRef = db.ref();
+nameRef.on('value', gotData)
+var testing = []
+
+function gotData(data){
+
+  var person = data.val();
+  var keys = Object.keys(person)
+  console.log(keys);
 }
+
+}
+
+
+
+
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -36,4 +54,3 @@ function getRandomInt(max) {
 
 //check if guess is correct (if matches colour card green)
 
-//
